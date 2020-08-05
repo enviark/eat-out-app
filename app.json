@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Eat Out to Help Out",
+    "slug": "eatout",
+    "version": "1.0.0",
+    "scheme": "env-eatout",
+    "ios": {
+      "bundleIdentifier": "com.enviark.eatout",
+      "buildNumber": "0.0.1",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.enviark.eatout",
+      "versionCode": 1
+    },
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0D0D0D"
+    },
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "automatic",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "web": {
+      "favicon": "./assets/images/favicon.png"
+    }
+  }
+}
