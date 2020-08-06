@@ -10,6 +10,15 @@ interface Restaurant {
   name: string
 }
 
+interface EstablishmentQuery {
+  latitude: number,
+  longitude: number,
+  latitudeDelta: number,
+  longitudeDelta: number,
+  limit: number,
+  sample: boolean
+}
+
 function mapResponseToRestaurant(resp: any): Restaurant {
   return {
     id: resp._id,
@@ -28,13 +37,19 @@ export default function RestaurantMapView() {
     // use `setRestaurants` to update markers based on restaurants in `region`
 
     try {
+      let query: EstablishmentQuery = {
+        ...region,
+        limit: 500,
+        sample: true
+      }
+
       let resp = await fetch('https://api.eatoutmap.uk/api/establishments/within-bounds', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(region)
+        body: JSON.stringify(query)
       });
       
       let data = await resp.json();
