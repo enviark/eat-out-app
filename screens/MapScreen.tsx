@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, StatusBar } from 'react-native';
+import { StyleSheet, View, StatusBar, Dimensions } from 'react-native';
 
 import { osName } from 'expo-device';
 
@@ -15,7 +15,7 @@ export default function MapScreen() {
       <AdMobBanner
         bannerSize="fullBanner"
         adUnitID={adUnit}
-        style={{alignSelf: 'center', flexShrink: 1}}
+        style={styles.ads}
       />
     </View>
   );
@@ -24,5 +24,9 @@ export default function MapScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  ads: {
+    alignSelf: 'center',
+    width: Dimensions.get('window').width
   }
 });

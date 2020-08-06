@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Image, View, Dimensions } from 'react-native';
 
 import MapView, { Region, Marker, LatLng } from 'react-native-maps';
-import logo from '../assets/images/dd-icon.png';
+import EligibilityView from './EligibilityView';
 
 interface Restaurant {
   id: string,
@@ -27,22 +27,24 @@ export default function RestaurantMapView() {
   const onChange = async (region: Region) => {
     // use `setRestaurants` to update markers based on restaurants in `region`
 
-    let url = new URL('https://api.eatoutmap.uk/api/establishments');
-
-    let resp = await fetch('https://api.eatoutmap.uk/api/establishments', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(region)
-    });
-    
-    let data = await resp.json();
-    let locations = data.message;
-
-    if (locations.length > 0) {
-      setRestaurants(locations.map(mapResponseToRestaurant));
+    try {
+      let resp = await fetch('https://api.eatoutmap.uk/api/establishments/within-bounds', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(region)
+      });
+      
+      let data = await resp.json();
+      let locations = data.message;
+  
+      if (locations && locations.length > 0) {
+        setRestaurants(locations.map(mapResponseToRestaurant));
+      }  
+    } catch (error) {
+      alert(`Unable to fetch restaurants: ${error.message}`);
     }
   }
   
@@ -53,6 +55,7 @@ export default function RestaurantMapView() {
         showsUserLocation={true}
         showsMyLocationButton={true}
         showsPointsOfInterest={false}
+        showsCompass={false}
         onRegionChangeComplete={onChange}
         mapType="mutedStandard"
       >
@@ -64,7 +67,7 @@ export default function RestaurantMapView() {
           />
         })}
       </MapView>
-      <Image source={logo} style={styles.logo}/>
+      <EligibilityView />
     </View>
   );
 }
@@ -74,13 +77,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  logo: {
-    position: 'absolute',
-    top: 48,
-    left: 16,
-    width: 96,
-    height: 96
   },
   map: {
     flex: 1,
