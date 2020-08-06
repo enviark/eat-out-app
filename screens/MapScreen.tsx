@@ -13,8 +13,9 @@ export default function MapScreen() {
     <View style={styles.container}>
       <RestaurantMapView />
       <AdMobBanner
-        bannerSize="banner"
+        bannerSize="fullBanner"
         adUnitID={adUnit}
+        style={{flexShrink: 1}}
       />
     </View>
   );
