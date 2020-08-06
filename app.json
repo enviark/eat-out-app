@@ -7,11 +7,17 @@
     "ios": {
       "bundleIdentifier": "com.enviark.eatout",
       "buildNumber": "0.0.1",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-2883417370695291~4646729048"
+      }
     },
     "android": {
       "package": "com.enviark.eatout",
-      "versionCode": 1
+      "versionCode": 1,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-2883417370695291~7091438290"
+      }
     },
     "splash": {
       "image": "./assets/images/splash.png",
