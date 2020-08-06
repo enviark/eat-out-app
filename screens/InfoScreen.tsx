@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, Linking } from 'react-native';
+import { StyleSheet, Text, View, Image, Linking, ScrollView } from 'react-native';
 
 import logo from '../assets/images/dd-icon.png';
 
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Image source={logo} style={styles.logo} />
         <Text style={styles.title}>Get <Text style={{fontWeight: '900'}}>50%</Text> off food and non-alcoholic drinks up to £10 per diner.</Text>
@@ -28,7 +28,7 @@ export default function TabTwoScreen() {
           , except where otherwise stated.</Text>
         <Text style={styles.disclaimer}>Have any feedback? Contact us at hello@enviark.com</Text>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flex: 3,
     marginHorizontal: 24,
     alignItems: 'center'
   },
@@ -62,8 +61,8 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   appInfo: {
-    flex: 1,
     padding: 16,
+    marginTop: 46,
     backgroundColor: '#FFFFFF'
   },
   disclaimer: {
