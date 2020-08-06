@@ -54,6 +54,7 @@ export default function RestaurantMapView() {
         showsMyLocationButton={true}
         showsPointsOfInterest={false}
         onRegionChangeComplete={onChange}
+        mapType="mutedStandard"
       >
         {restaurants.map((restaurant) => {
           return <Marker
