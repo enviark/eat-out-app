@@ -39,7 +39,7 @@ export default function RestaurantMapView() {
     try {
       let query: EstablishmentQuery = {
         ...region,
-        limit: 500,
+        limit: 300,
         sample: true
       }
 

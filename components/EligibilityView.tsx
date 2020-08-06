@@ -14,10 +14,6 @@ export default function RestaurantMapView() {
 
     fetch('https://api.eatoutmap.uk/api/dates').then((r) => r.json())
       .then((data) => {
-        let today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        let iso = today.toISOString();
         if (data.message) {
           updateEligibility(data.message);
         }
@@ -71,7 +67,7 @@ const styles = StyleSheet.create({
       flexGrow: 1,
       marginLeft: 16,
       borderRadius: 32,
-      padding: 32
+      padding: 24
   },
   text: {
       flex: 1,
