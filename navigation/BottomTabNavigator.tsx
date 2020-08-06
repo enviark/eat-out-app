@@ -6,6 +6,7 @@ import * as React from 'react';
 import MapScreen from '../screens/MapScreen';
 import InfoScreen from '../screens/InfoScreen';
 import { BottomTabParamList, MapParamList, InfoParamList } from '../types';
+import ChainScreen from '../screens/ChainScreen';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -17,6 +18,13 @@ export default function BottomTabNavigator() {
         component={MapNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-map" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Chains"
+        component={ChainNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-link" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -49,6 +57,20 @@ function MapNavigator() {
         options={{ headerTitle: 'Eat Out to Help Out', headerShown: false }}
       />
     </MapStack.Navigator>
+  );
+}
+
+const ChainStack = createStackNavigator<InfoParamList>();
+
+function ChainNavigator() {
+  return (
+    <InfoStack.Navigator>
+      <InfoStack.Screen
+        name="ChainScreen"
+        component={ChainScreen}
+        options={{ headerTitle: 'Eat Out to Help Out Chains' }}
+      />
+    </InfoStack.Navigator>
   );
 }
 
