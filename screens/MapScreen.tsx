@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 
 import { osName } from 'expo-device';
 
@@ -13,9 +13,9 @@ export default function MapScreen() {
     <View style={styles.container}>
       <RestaurantMapView />
       <AdMobBanner
-        bannerSize="banner"
+        bannerSize="fullBanner"
         adUnitID={adUnit}
-        style={{alignSelf: 'center'}}
+        style={{alignSelf: 'center', flexShrink: 1}}
       />
     </View>
   );

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Image, View, Dimensions } from 'react-native';
 
 import MapView, { Region, Marker, LatLng } from 'react-native-maps';
+import logo from '../assets/images/dd-icon.png';
 
 interface Restaurant {
   id: string,
@@ -62,6 +63,7 @@ export default function RestaurantMapView() {
           />
         })}
       </MapView>
+      <Image source={logo} style={styles.logo}/>
     </View>
   );
 }
@@ -71,6 +73,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  logo: {
+    position: 'absolute',
+    top: 48,
+    left: 16,
+    width: 96,
+    height: 96
   },
   map: {
     flex: 1,

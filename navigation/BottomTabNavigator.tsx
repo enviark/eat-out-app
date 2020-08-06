@@ -46,7 +46,7 @@ function MapNavigator() {
       <MapStack.Screen
         name="MapScreen"
         component={MapScreen}
-        options={{ headerTitle: 'Eat Out to Help Out' }}
+        options={{ headerTitle: 'Eat Out to Help Out', headerShown: false }}
       />
     </MapStack.Navigator>
   );
