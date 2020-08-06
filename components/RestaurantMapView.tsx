@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, Image, View, Dimensions } from 'react-native';
 
+import logo from '../assets/images/dd-icon.png';
+
 import MapView, { Region, Marker, LatLng } from 'react-native-maps';
 import EligibilityView from './EligibilityView';
 
@@ -83,6 +85,7 @@ export default function RestaurantMapView() {
         })}
       </MapView>
       <EligibilityView />
+      <Image source={logo} style={styles.logo} />
     </View>
   );
 }
@@ -92,6 +95,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  logo: {
+    width: 96,
+    height: 96,
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
   },
   map: {
     flex: 1,
