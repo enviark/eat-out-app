@@ -5,18 +5,18 @@ import chains from '../data/chains';
 
 export default function ChainScreen() {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Participating Chains</Text>
         <Text style={styles.subtitle}>Large chains are not on our map, however we've provided a list of all chains (25+ stores) taking part in the Eat Out to Help Out scheme.</Text>
       </View>
       <AlphabetList style={styles.list} data={chains} renderItem={ListItem} renderSectionHeader={SectionHeader} indexLetterColor="white" ></AlphabetList>
-    </ScrollView>
+    </View>
   );
 }
 
 const ListItem = (props: any) => {
-  return <Text>{props.value}</Text>
+  return <Text style={styles.listing}>{props.value}</Text>
 }
 
 const SectionHeader = (props: any) => {
@@ -42,14 +42,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   list: {
-    padding: 16,
-    paddingTop: 0,
-    marginTop: 8,
+    flexGrow: 1,
+    paddingHorizontal: 16,
+    marginBottom: 72,
     backgroundColor: '#FFFFFF'
   },
   listHeader: {
     fontSize: 20,
-    marginTop: 8,
-    fontWeight: "bold"
+    marginVertical: 8,
+    fontWeight: "bold",
+    backgroundColor: '#F1F1F1',
+    padding: 8
+  },
+  listing: {
+    fontSize: 16
   }
 });

@@ -70,7 +70,7 @@ export default function RestaurantMapView() {
       <MapView
         style={styles.map}
         showsUserLocation={true}
-        showsMyLocationButton={true}
+        showsMyLocationButton={false}
         showsPointsOfInterest={false}
         showsCompass={false}
         onRegionChangeComplete={onChange}

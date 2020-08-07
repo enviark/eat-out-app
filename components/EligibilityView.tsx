@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingLeft: 0,
     marginTop: 32,
-    opacity: 0.75,
+    opacity: 0.8,
   },
   info: {
       flex: 1,
