@@ -11,6 +11,11 @@ export default {
               MapScreen: 'map',
             },
           },
+          Chains: {
+            screens: {
+              ChainScreen: 'chains'
+            }
+          },
           Info: {
             screens: {
               AboutScreen: 'about',

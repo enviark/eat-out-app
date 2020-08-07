@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, Linking, ScrollView, ListView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import AlphabetList from 'react-native-section-alphabet-list';
 import chains from '../data/chains';
 
@@ -7,10 +7,10 @@ export default function ChainScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Large Chains</Text>
-        <Text style={styles.subtitle}>Large chains are not on our map, however we've provided a list of all chains (25 stores+) taking part in the Eat Out to Help Out scheme.</Text>
+        <Text style={styles.title}>Participating Chains</Text>
+        <Text style={styles.subtitle}>Large chains are not on our map, however we've provided a list of all chains (25+ stores) taking part in the Eat Out to Help Out scheme.</Text>
       </View>
-      <AlphabetList style={styles.appInfo} data={chains} renderItem={ListItem} renderSectionHeader={SectionHeader} indexLetterColor="white" ></AlphabetList>
+      <AlphabetList style={styles.list} data={chains} renderItem={ListItem} renderSectionHeader={SectionHeader} indexLetterColor="white" ></AlphabetList>
     </ScrollView>
   );
 }
@@ -41,15 +41,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
   },
-  appInfo: {
+  list: {
     padding: 16,
     paddingTop: 0,
     marginTop: 8,
     backgroundColor: '#FFFFFF'
-  },
-  text: {
-    fontSize: 18,
-    marginBottom: 32
   },
   listHeader: {
     fontSize: 20,

@@ -68,7 +68,7 @@ function ChainNavigator() {
       <InfoStack.Screen
         name="ChainScreen"
         component={ChainScreen}
-        options={{ headerTitle: 'Eat Out to Help Out Chains' }}
+        options={{ headerTitle: 'Eat Out to Help Out' }}
       />
     </InfoStack.Navigator>
   );
