@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Image, Text, View, Dimensions } from 'react-native';
 
-import logo from '../assets/images/dd-icon.png';
 import { Ionicons } from '@expo/vector-icons';
 
 import fallbackData from '../dates.json';
@@ -30,7 +29,6 @@ export default function RestaurantMapView() {
 
   return (
     <View style={styles.container}>
-      <Image source={logo} style={styles.logo}/>
       <View style={styles.info}>
         <Ionicons size={30} name={isEligible ? 'ios-pin' : 'ios-cloudy-night'} />
         <Text style={styles.text}>
@@ -53,12 +51,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     top: 0,
+    left: 0,
     padding: 16,
+    paddingLeft: 0,
     marginTop: 32,
-  },
-  logo: {
-    width: 96,
-    height: 96
+    opacity: 0.8,
   },
   info: {
       flex: 1,
@@ -67,7 +64,10 @@ const styles = StyleSheet.create({
       flexGrow: 1,
       marginLeft: 16,
       borderRadius: 32,
-      padding: 24
+      padding: 24,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
   },
   text: {
       flex: 1,

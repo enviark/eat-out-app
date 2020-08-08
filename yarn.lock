@@ -4625,6 +4625,18 @@ react-native-screens@~2.9.0:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.9.0.tgz#ead2843107ba00fee259aa377582e457c74f1f3b"
   integrity sha512-5MaiUD6HA3nzY3JbVI8l3V7pKedtxQF3d8qktTVI0WmWXTI4QzqOU8r8fPVvfKo3MhOXwhWBjr+kQ7DZaIQQeg==
 
+react-native-section-alphabet-list@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-section-alphabet-list/-/react-native-section-alphabet-list-1.0.1.tgz#f90bb19f81e3fa8d4d72b4cf37b07258c29c5b88"
+  integrity sha512-xwM0P+699YM0A4UMOiReiHMlJWLHE3/vhq7nzkV+m2t4xcr67zo+7BbxC13gTIkWAhyP2eVB2vG0Sn/IsYaBXQ==
+  dependencies:
+    react-native-section-list-get-item-layout "^2.2.3"
+
+react-native-section-list-get-item-layout@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-section-list-get-item-layout/-/react-native-section-list-get-item-layout-2.2.3.tgz#152a8efdcb3847dbcbeb04cd2d0de4312d3d2fcb"
+  integrity sha512-fzCW5SiYP6qCZyDHebaElHonIFr8NFrZK9JDkxFLnpxMJih4d+HQ4rHyOs0Z4Gb/FjyCVbRH7RtEnjeQ0XffMg==
+
 react-native-web@~0.11.7:
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.11.7.tgz#d173d5a9b58db23b6d442c4bc4c81e9939adac23"
