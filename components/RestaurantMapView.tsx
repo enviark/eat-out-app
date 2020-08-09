@@ -33,15 +33,23 @@ function mapResponseToRestaurant(resp: any): Restaurant {
 }
 
 export default function RestaurantMapView() {
+  const [cachedRestaurants, setCachedRestaurants] = React.useState<string[]>([])
   const [restaurants, setRestaurants] = React.useState<Restaurant[]>([])
 
-  const onChange = async (region: Region) => {
+  const onChangeComplete = async (region: Region) => {
     // use `setRestaurants` to update markers based on restaurants in `region`
 
     try {
+      let roundedRegion: Region = {
+        latitude: parseFloat(region.latitude.toFixed(4)),
+        longitude: parseFloat(region.longitude.toFixed(4)),
+        latitudeDelta: parseFloat(region.latitudeDelta.toFixed(4)),
+        longitudeDelta: parseFloat(region.longitudeDelta.toFixed(4))
+      }
+
       let query: EstablishmentQuery = {
-        ...region,
-        limit: 300,
+        ...roundedRegion,
+        limit: 30,
         sample: true
       }
 
@@ -55,10 +63,22 @@ export default function RestaurantMapView() {
       });
       
       let data = await resp.json();
-      let locations = data.message;
+      let locations = data.message.locations;
   
       if (locations && locations.length > 0) {
-        setRestaurants(locations.map(mapResponseToRestaurant));
+        let rests = [...restaurants];
+
+        // todo: prioritise cache to keep restaurants in viewable region
+        locations.map(mapResponseToRestaurant).forEach((rest: Restaurant) => {
+          if (cachedRestaurants.indexOf(rest.id) < 0) {
+            rests.push(rest);
+            if (rests.length > 4000) {
+              rests.shift();
+            }
+          }
+        })
+        setRestaurants(rests);
+        setCachedRestaurants(rests.map((r) => r.id));
       }  
     } catch (error) {
       alert(`Unable to fetch restaurants: ${error.message}`);
@@ -72,8 +92,8 @@ export default function RestaurantMapView() {
         showsUserLocation={true}
         showsMyLocationButton={false}
         showsPointsOfInterest={false}
+        onRegionChangeComplete={onChangeComplete}
         showsCompass={false}
-        onRegionChangeComplete={onChange}
         mapType="mutedStandard"
       >
         {restaurants.map((restaurant) => {
